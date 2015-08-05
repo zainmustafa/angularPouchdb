@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ng-Pouch</title>
+    <link href="./style.css" rel="stylesheet">
+    <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+
+    <script src="./bower_components/angular/angular.js"></script>
+    <script src="./bower_components/angular-aria/angular-aria.js"></script>
+    <script src="./bower_components/angular-animate/angular-animate.js"></script>
+    <script src="./bower_components/angular-material/angular-material.js"></script>
+    <script src="./bower_components/angular-new-router/dist/router.es5.js"></script>
+    <script src="./bower_components/pouchdb/dist/pouchdb.js"></script>
+    <script src="./bower_components/angular-pouchdb/angular-pouchdb.js"></script>
+
+    <!--<script src="./bower_components/pouchdb-nightly.min.js"></script>-->
+    <!--<script src="./bower_components/angular-pouch/angular-pouch.js"></script>-->
+    <script src="./app.js"></script>
+    <script src="./components/index/index.js"></script>
+    <script src="./components/view/view.js"></script>
+</head>
+<body ng-app="app" ng-controller="AppController as app" class="main">
+    <div layout="row" layout-align="center center" style="height: 100%;">
+        <div layout="column" style="height: 100%;">
+            <div flex="20"></div>
+            <div flex="80">
+                <ng-viewport></ng-viewport>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--<md-button class="md-primary md-raised" ng-click="app.goToView();">GoToView</md-button><br>-->
+</body>
+</html>

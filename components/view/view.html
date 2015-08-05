@@ -1,0 +1,18 @@
+<div ng-controller="ViewController as view">
+    <md-whiteframe class="md-whiteframe-z4" layout="column" layout-align="center center" style="height: 100%; width: 700px;">
+        <span>{{view.remaining()}} of {{view.todos.length}} remaining <img src="./image/ic_delete_24px.svg" ng-click="view.removeDone()"></span>
+        <ul class="unstyled">
+            <li ng-repeat="todo in view.todos track by $index">
+                <input type="checkbox" ng-model="todo.done" ng-click="view.updateTodo(todo)">
+                <span ng-class="{done: todo.done}" style="margin-left: auto">{{todo.text}}</span>
+            </li>
+        </ul>
+        <form ng-submit="view.addTodo()">
+            <md-input-container>
+                <label>Add new todo here</label>
+                <input type="text" ng-model="view.todoText"  size="30">
+            </md-input-container>
+            <md-button class="md-raised" type="submit" value="add" style="margin-left: 30%;">Add</md-button>
+        </form>
+    </md-whiteframe>
+</div>
