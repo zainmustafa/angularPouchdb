@@ -1,13 +1,19 @@
 <div ng-controller="ViewController as view">
     <md-whiteframe class="md-whiteframe-z4" layout="column" layout-align="center center" style="height: 100%; width: 700px;">
-        <span>{{view.remaining()}} of {{view.todos.length}} remaining <img src="./image/ic_delete_24px.svg" ng-click="view.removeDone()"></span>
-        <ul class="unstyled">
-            <li ng-repeat="todo in view.todos track by $index">
-                <input type="checkbox" ng-model="todo.done" ng-click="view.updateTodo(todo)">
-                <span ng-class="{done: todo.done}" style="margin-left: auto">{{todo.text}}</span>
-            </li>
-        </ul>
-        <form ng-submit="view.addTodo()">
+        <p class="md-headline">To<span style="color: blue">Do</span></p>
+        <md-whiteframe class="md-whiteframe-z3" style="height: 200px;overflow: auto;width: 50%;" scroll-glue>
+                <ul class="unstyled" ng-repeat="todo in view.todos track by $index">
+                    <div layout="row">
+                        <div flex="80">
+                            <span ng-class="{done: todo.done}" style="margin-right: 100px;">{{todo.text}} </span>
+                        </div>
+                        <div flex="20">
+                            <img src="./image/ic_delete_24px.svg" ng-click="view.removeDone(todo);">
+                        </div>
+                    </div>
+                </ul>
+        </md-whiteframe>
+        <form ng-submit="view.addTodo()" style="margin-top: 5%">
             <md-input-container>
                 <label>Add new todo here</label>
                 <input type="text" ng-model="view.todoText"  size="30">

@@ -1,11 +1,11 @@
 /**
  * Created by Zain Mustafa on 7/29/2015.
  */
-angular.module('app.view', [])
+angular.module('app.view', ['luegg.directives'])
     .controller('ViewController', function($db){
         var that = this;
         that.todos = [];
-        $db.allDocs({include_docs: true, descending: true}, function(err, response) {
+        $db.allDocs({include_docs: true}, function(err, response) {
             angular.forEach(response.rows, function(data) {
                 that.todos.push(data.doc);
             });
@@ -27,11 +27,11 @@ angular.module('app.view', [])
         };
 
         //Remove a TODO.
-            that.removeDone = function() {
+            that.removeDone = function(todo1) {
             var oldTodos = that.todos;
             that.todos = [];
             angular.forEach(oldTodos, function(todo) {
-                if (!todo.done) {
+                if (todo.text != todo1.text) {
                     that.todos.push(todo);
                 }
                 else {
@@ -39,11 +39,8 @@ angular.module('app.view', [])
                 }
             });
         };
-
         //Update Todo.
-        that.updateTodo = function(todo) {
-            $db.put(todo);
-        };
-
+        /*that.updateTodo = function(todo) {
+            /!*$db.put(todo);*!/
+        };*/
     });
-

@@ -1,7 +1,7 @@
 /**
  * Created by Zain Mustafa on 7/29/2015.
  */
-var app = angular.module('app', [ 'pouchdb', 'ngNewRouter', 'ngMaterial', 'app.view', 'app.index'])
+var app = angular.module('app', ['pouchdb', 'ngNewRouter', 'ngMaterial', 'app.view', 'app.index'])
     .factory('$db', function(pouchDB) {
         return pouchDB('idb://todos');
     })
